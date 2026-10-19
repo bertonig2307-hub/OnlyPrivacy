@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<link rel="manifest" href="./manifest.json">
-<meta name="theme-color" content="#6c5ce7">
-<link rel="apple-touch-icon" href="./icon-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="CyberEroi">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🛡️ OnlyPrivacy - Impara a proteggerti online</title>
+<title>🛡️ CyberEroi - Diventa un Eroe della Sicurezza Digitale</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --primary:#6c5ce7;
@@ -27,993 +21,661 @@
   --radius:18px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
 body{
   font-family:'Nunito',sans-serif;
-  background:linear-gradient(160deg,#eef0ff 0%,#f8f1ff 60%,#eafff7 100%);
+  background:#fdfcff;
   color:var(--text);
-  min-height:100vh;
-  padding-bottom:40px;
+  overflow-x:hidden;
 }
-h1,h2,h3{font-family:'Baloo 2',cursive;}
-h2{font-size:1.7rem;margin-bottom:6px;color:var(--primary-dark);}
-h3{font-size:1.15rem;margin:14px 0 8px;}
-.subtitle{color:#666;margin-bottom:18px;}
-.topbar{
-  display:flex;justify-content:space-between;align-items:center;
-  background:linear-gradient(90deg,var(--primary),#8e6ff5);
-  color:#fff;padding:14px 20px;
-  position:sticky;top:0;z-index:50;
-  box-shadow:0 4px 14px rgba(108,92,231,0.3);
+h1,h2,h3,h4{font-family:'Baloo 2',cursive;}
+a{text-decoration:none;color:inherit;}
+img,svg{display:block;max-width:100%;}
+section{padding:80px 20px;}
+.container{max-width:1150px;margin:0 auto;}
+.section-tag{
+  display:inline-block;background:var(--bg);color:var(--primary);
+  padding:6px 16px;border-radius:30px;font-weight:800;font-size:0.85rem;
+  margin-bottom:14px;letter-spacing:0.5px;
 }
-.logo{font-family:'Baloo 2';font-weight:800;font-size:1.3rem;}
-.header-stats{display:flex;gap:10px;flex-wrap:wrap;}
-.hstat{background:rgba(255,255,255,0.2);padding:5px 10px;border-radius:20px;font-weight:700;font-size:0.9rem;white-space:nowrap;}
-.navbar{
-  display:flex;gap:4px;overflow-x:auto;background:#fff;
-  padding:8px 10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);
-  position:sticky;top:60px;z-index:49;
-}
-.navbtn{
-  flex:0 0 auto;background:none;border:none;cursor:pointer;
-  display:flex;flex-direction:column;align-items:center;gap:2px;
-  padding:8px 12px;border-radius:12px;font-family:'Nunito';font-weight:700;
-  color:#888;transition:all .2s;font-size:0.75rem;
-}
-.navbtn .navicon{font-size:1.3rem;}
-.navbtn.active, .navbtn:hover{background:var(--bg);color:var(--primary);}
-main{max-width:1000px;margin:0 auto;padding:22px 16px;}
-.view{display:none;animation:fadein .3s ease;}
-@keyframes fadein{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.section-title{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:14px;color:var(--text);}
+.section-title span{color:var(--primary);}
+.section-sub{color:#777;font-size:1.05rem;max-width:620px;margin-bottom:40px;line-height:1.6;}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:10px;}
-.card{
-  background:var(--card);border-radius:var(--radius);padding:20px;
-  box-shadow:0 4px 16px rgba(0,0,0,0.07);cursor:pointer;transition:transform .2s, box-shadow .2s;
-  border-top:5px solid var(--accent,var(--primary));
-}
-.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.13);}
-.card-icon{font-size:2.3rem;margin-bottom:8px;}
-.lesson-card{border-top-color:var(--accent);}
-.lesson-card.locked, .game-card.locked, .trophy-card.locked{opacity:.5;cursor:not-allowed;pointer-events:none;filter:grayscale(1);}
-.trophy-card{text-align:center;border-top-color:gold;}
-
+/* ===== BUTTONS ===== */
 .btn{
-  border:none;border-radius:14px;padding:12px 20px;font-weight:800;
-  font-family:'Nunito';cursor:pointer;font-size:0.95rem;transition:transform .15s, filter .15s;
-  margin:6px 6px 6px 0;
+  display:inline-flex;align-items:center;gap:8px;border:none;border-radius:16px;
+  padding:16px 30px;font-weight:800;font-family:'Nunito';cursor:pointer;font-size:1rem;
+  transition:transform .2s, box-shadow .2s;
 }
-.btn:active{transform:scale(.96);}
-.btn-primary{background:linear-gradient(90deg,var(--primary),#8e6ff5);color:#fff;box-shadow:0 4px 12px rgba(108,92,231,.4);}
+.btn:hover{transform:translateY(-3px);}
+.btn-primary{background:linear-gradient(90deg,var(--primary),#8e6ff5);color:#fff;box-shadow:0 10px 24px rgba(108,92,231,.4);}
 .btn-secondary{background:#fff;color:var(--primary);border:2px solid var(--primary);}
-.btn-back{background:#eee;color:#555;}
-.btn-speak{background:var(--secondary);color:#fff;}
-.btn-safe{background:var(--success);color:#fff;}
-.btn-danger{background:var(--danger);color:#fff;}
-.btn-option{display:block;width:100%;text-align:left;background:#f4f2ff;color:var(--text);margin:6px 0;border-left:5px solid var(--primary);}
-.btn-option:hover{background:#eae6ff;}
-.link-btn{background:none;border:none;color:#999;text-decoration:underline;cursor:pointer;font-size:0.8rem;}
+.btn-light{background:#fff;color:var(--text);}
+.btn-outline-white{background:transparent;border:2px solid rgba(255,255,255,0.6);color:#fff;}
 
-.hero{text-align:center;padding:20px 10px;}
-.hero-avatar{
-  width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:3rem;margin:0 auto 14px;position:relative;box-shadow:0 6px 18px rgba(0,0,0,0.15);
+/* ===== NAVBAR ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);
+  box-shadow:0 2px 14px rgba(0,0,0,0.05);
 }
-.avatar-accessory-small{position:absolute;top:-10px;right:-5px;font-size:1.6rem;}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0;}
-.stat-card{background:#fff;border-radius:14px;padding:14px 6px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,0.06);}
-.stat-num{font-family:'Baloo 2';font-size:1.5rem;color:var(--primary);}
-.stat-label{font-size:0.75rem;color:#888;}
-.cta-row{display:flex;flex-wrap:wrap;justify-content:center;margin:20px 0;}
-.info-card{background:#fff;border-radius:var(--radius);padding:18px;margin-top:10px;}
+.nav-wrap{max-width:1150px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;}
+.logo{font-family:'Baloo 2';font-weight:800;font-size:1.4rem;color:var(--primary-dark);display:flex;align-items:center;gap:8px;}
+.nav-links{display:flex;gap:28px;font-weight:700;color:#555;}
+.nav-links a:hover{color:var(--primary);}
+.nav-cta{display:flex;gap:10px;}
+.burger{display:none;font-size:1.6rem;cursor:pointer;color:var(--primary);background:none;border:none;}
 
-.comic-box{display:flex;flex-direction:column;gap:12px;margin:16px 0;}
-.comic-bubble{
-  background:#f4f2ff;border-radius:16px;border:2px solid #e0d9ff;padding:14px 18px;
-  font-size:1rem;position:relative;
+/* ===== HERO ===== */
+.hero{
+  position:relative;padding:160px 20px 100px;
+  background:radial-gradient(circle at 20% 20%,#efe9ff,transparent 50%),
+             radial-gradient(circle at 85% 15%,#e2fff9,transparent 45%),
+             linear-gradient(180deg,#faf9ff,#ffffff);
+  overflow:hidden;
 }
-.lesson-detail{background:#fff;border-radius:var(--radius);padding:20px;border-top:6px solid var(--accent);margin-top:10px;}
+.hero-grid{max-width:1150px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff0f5;color:var(--accent);
+  padding:8px 16px;border-radius:30px;font-weight:800;font-size:0.85rem;margin-bottom:18px;box-shadow:0 4px 14px rgba(253,121,168,.2);}
+.hero h1{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.15;margin-bottom:18px;}
+.hero h1 .hl1{color:var(--primary);}
+.hero h1 .hl2{color:var(--accent);}
+.hero p.lead{font-size:1.15rem;color:#666;margin-bottom:28px;max-width:520px;line-height:1.6;}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
+.hero-trust{display:flex;gap:22px;flex-wrap:wrap;color:#888;font-weight:700;font-size:0.9rem;}
+.hero-trust span{display:flex;align-items:center;gap:6px;}
 
-.quiz-box{background:#fbfaff;border-radius:14px;padding:16px;margin-top:16px;}
-.quiz-question{margin-bottom:14px;}
-.quiz-option{display:block;padding:8px 10px;border-radius:10px;cursor:pointer;margin:4px 0;background:#fff;border:1px solid #eee;}
-.quiz-option:hover{background:#f0ecff;}
-.success-box{background:#e6fff2;border:2px solid var(--success);color:#1a7a44;padding:12px 16px;border-radius:12px;margin:10px 0;}
-.error-box{background:#ffeef0;border:2px solid var(--danger);color:#a81c2b;padding:12px 16px;border-radius:12px;margin:10px 0;}
-
-.phone-mock{background:#111;border-radius:22px;padding:14px;max-width:360px;margin:16px auto;color:#fff;}
-.chat-header{font-weight:800;margin-bottom:10px;border-bottom:1px solid #333;padding-bottom:8px;}
-.chat-bubble{background:#2a2a40;padding:12px 14px;border-radius:14px;font-size:0.95rem;}
-.choice-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
-.choice-row-col{display:flex;flex-direction:column;}
-.progress-text{text-align:center;color:#999;margin-top:10px;font-size:0.85rem;}
-
-.pw-input{width:100%;padding:14px;border-radius:12px;border:2px solid #ddd;font-size:1rem;margin:10px 0;}
-.pw-input:focus{outline:none;border-color:var(--primary);}
-.meter{width:100%;height:16px;background:#eee;border-radius:10px;overflow:hidden;margin:10px 0 4px;}
-.meter-fill{height:100%;border-radius:10px;transition:width .4s, background .4s;}
-
-.escape-header{display:flex;justify-content:space-between;font-weight:800;margin-bottom:14px;background:#2d2d3a;color:#fff;padding:10px 16px;border-radius:12px;}
-.escape-question{background:#fff;border-radius:14px;padding:18px;}
-
-.profile-mock{background:#fff;border-radius:14px;padding:10px;margin:16px 0;}
-.profile-field{padding:12px 14px;border-radius:10px;border:2px solid #eee;margin:6px 0;cursor:pointer;transition:all .15s;}
-.profile-field:hover{border-color:var(--primary);}
-.profile-field.selected{background:#fff0f3;border-color:var(--danger);}
-
-.story-box{background:#fff;border-radius:var(--radius);padding:20px;border-top:6px solid var(--secondary);}
-.story-text{font-size:1.1rem;margin:14px 0;line-height:1.5;}
-
-.accordion-item{background:#fff;border-radius:14px;margin-bottom:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,0.06);}
-.accordion-header{padding:16px 18px;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;background:#fff;color:var(--primary-dark);}
-.accordion-body{padding:0 18px 16px;}
-.accordion-body ol{padding-left:20px;line-height:1.7;}
-
-.avatar-preview{
-  width:150px;height:150px;border-radius:50%;margin:10px auto 20px;display:flex;align-items:center;justify-content:center;
-  font-size:4.5rem;position:relative;box-shadow:0 8px 24px rgba(0,0,0,0.2);
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;}
+.phone-frame{
+  width:290px;background:#1b1b2b;border-radius:38px;padding:14px;box-shadow:0 30px 60px rgba(108,92,231,.35);
+  position:relative;z-index:3;
 }
-.avatar-accessory{position:absolute;top:-14px;right:-8px;font-size:2.4rem;}
-.option-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;}
-.face-btn{width:62px;height:62px;border-radius:50%;border:3px solid #eee;background:#fff;font-size:1.6rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.face-btn.selected{border-color:var(--primary);box-shadow:0 0 0 3px #e0d9ff;}
-.face-btn small{font-size:0.55rem;color:#888;}
-.color-btn{width:44px;height:44px;border-radius:50%;border:3px solid #eee;cursor:pointer;}
-.color-btn.selected{border-color:#333;transform:scale(1.1);}
-
-.progress-item{margin:14px 0;}
-.progress-item span{font-weight:700;}
-.progress-bar{width:100%;height:14px;background:#eee;border-radius:10px;overflow:hidden;margin-top:6px;}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:width .5s;}
-
-.modal-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:100;padding:20px;
+.phone-screen{
+  background:linear-gradient(160deg,#efe9ff,#e0fffa);border-radius:26px;overflow:hidden;
+  padding:18px 14px;min-height:480px;
 }
-.modal-box{background:#fff;border-radius:var(--radius);padding:30px;max-width:380px;width:100%;text-align:center;}
-.modal-box input{width:100%;padding:12px;border-radius:10px;border:2px solid #ddd;margin:14px 0;font-size:1rem;}
-
-#toast-container{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:200;display:flex;flex-direction:column;gap:8px;align-items:center;}
-.toast{
-  background:#2d2d3a;color:#fff;padding:12px 22px;border-radius:30px;font-weight:700;
-  opacity:0;transform:translateY(20px);transition:all .4s;box-shadow:0 6px 18px rgba(0,0,0,0.3);
+.phone-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.phone-chip{background:rgba(255,255,255,0.7);border-radius:20px;padding:4px 10px;font-size:0.65rem;font-weight:800;color:var(--primary);}
+.phone-avatar{
+  width:80px;height:80px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;
+  font-size:2.4rem;margin:0 auto 10px;box-shadow:0 8px 18px rgba(108,92,231,.4);position:relative;
 }
-.toast.show{opacity:1;transform:translateY(0);}
+.phone-avatar span.crown{position:absolute;top:-14px;right:-6px;font-size:1.5rem;}
+.phone-name{text-align:center;font-family:'Baloo 2';font-weight:700;margin-bottom:4px;}
+.phone-level{text-align:center;color:#888;font-size:0.8rem;margin-bottom:14px;}
+.phone-progress{background:#fff;border-radius:10px;height:10px;overflow:hidden;margin-bottom:18px;}
+.phone-progress-fill{height:100%;width:68%;background:linear-gradient(90deg,var(--primary),var(--secondary));}
+.phone-card{background:#fff;border-radius:14px;padding:10px 12px;margin-bottom:10px;display:flex;align-items:center;gap:10px;box-shadow:0 3px 10px rgba(0,0,0,.05);font-weight:700;font-size:0.85rem;}
+.phone-card .ic{font-size:1.3rem;}
+.float-badge{
+  position:absolute;background:#fff;border-radius:14px;padding:10px 14px;box-shadow:0 10px 24px rgba(0,0,0,.12);
+  font-weight:800;font-size:0.85rem;display:flex;align-items:center;gap:8px;z-index:4;animation:float 4s ease-in-out infinite;
+}
+.badge-1{top:10%;left:-14%;color:var(--success);}
+.badge-2{bottom:16%;right:-16%;color:var(--accent);animation-delay:1s;}
+.badge-3{top:48%;right:-20%;color:var(--warning);animation-delay:2s;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.blob{position:absolute;border-radius:50%;filter:blur(10px);opacity:.5;z-index:1;}
+.blob1{width:260px;height:260px;background:#d6ccff;top:-40px;left:-60px;}
+.blob2{width:220px;height:220px;background:#c6fff2;bottom:-30px;right:-40px;}
 
-.footer{text-align:center;margin-top:30px;color:#aaa;font-size:0.8rem;}
+/* ===== LOGOS STRIP ===== */
+.strip{background:#fff;padding:30px 20px;border-top:1px solid #f0eeff;border-bottom:1px solid #f0eeff;}
+.strip-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px;color:#999;font-weight:800;}
 
-@media(max-width:600px){
-  .stats-grid{grid-template-columns:repeat(2,1fr);}
-  .logo{font-size:1rem;}
-  .hstat{font-size:0.75rem;padding:4px 8px;}
+/* ===== FEATURES - GAME STYLE ===== */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
+.feature-card{
+  background:#fff;border-radius:var(--radius);padding:28px 24px;box-shadow:0 6px 20px rgba(0,0,0,.05);
+  border-top:5px solid var(--primary);transition:transform .25s, box-shadow .25s;position:relative;overflow:hidden;
+}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(0,0,0,.1);}
+.feature-icon{width:58px;height:58px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin-bottom:16px;}
+.feature-card h3{font-size:1.2rem;margin-bottom:8px;}
+.feature-card p{color:#777;font-size:0.95rem;line-height:1.55;}
+
+/* ===== BIG FEATURE ROWS (alternating) ===== */
+.big-feature{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:110px;}
+.big-feature.reverse .ft-visual{order:2;}
+.big-feature.reverse .ft-text{order:1;}
+.ft-text .section-tag{margin-bottom:12px;}
+.ft-text h3{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:16px;}
+.ft-text p{color:#666;line-height:1.7;margin-bottom:20px;font-size:1.02rem;}
+.ft-list{list-style:none;}
+.ft-list li{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;color:#555;font-weight:600;}
+.ft-list li .chk{color:var(--success);font-size:1.1rem;flex-shrink:0;}
+.ft-visual{position:relative;display:flex;justify-content:center;}
+.mock-card{background:#fff;border-radius:22px;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.12);width:100%;max-width:400px;}
+
+/* mock: trofei */
+.mock-trophy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.mock-trophy{background:var(--bg);border-radius:14px;padding:16px 8px;text-align:center;font-size:1.8rem;}
+.mock-trophy.locked{opacity:.35;filter:grayscale(1);}
+.mock-trophy small{display:block;font-size:0.6rem;margin-top:4px;color:#888;font-weight:800;}
+
+/* mock: lesson comic */
+.mock-comic .bubble{background:var(--bg);border-radius:14px;padding:12px 16px;margin-bottom:10px;font-size:0.9rem;font-weight:600;color:#444;}
+.mock-comic .bubble.me{background:#e6fff5;}
+
+/* mock: quiz chat */
+.mock-chat-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-weight:800;}
+.mock-chat-bubble{background:#2a2a40;color:#fff;padding:12px 14px;border-radius:14px;font-size:0.9rem;margin-bottom:14px;}
+.mock-choice{display:flex;gap:10px;}
+.mock-choice button{flex:1;border:none;padding:10px;border-radius:12px;font-weight:800;cursor:default;font-size:0.85rem;}
+.mock-choice .safe{background:var(--success);color:#fff;}
+.mock-choice .danger{background:var(--danger);color:#fff;}
+
+/* mock: story */
+.mock-story p{font-size:0.95rem;color:#555;margin-bottom:16px;line-height:1.5;}
+.mock-story-opt{display:block;width:100%;text-align:left;background:var(--bg);border:none;border-left:5px solid var(--primary);
+  padding:10px 14px;border-radius:10px;margin-bottom:8px;font-weight:700;color:#444;font-size:0.88rem;}
+
+/* mock: emergency */
+.mock-emergency .acc{background:var(--bg);border-radius:12px;padding:14px 16px;margin-bottom:10px;font-weight:800;color:var(--primary-dark);font-size:0.9rem;display:flex;justify-content:space-between;}
+
+/* ===== HOW IT WORKS ===== */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.step{text-align:center;position:relative;}
+.step-num{
+  width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2';font-size:1.4rem;font-weight:800;
+  margin:0 auto 16px;box-shadow:0 8px 18px rgba(108,92,231,.3);
+}
+.step h4{margin-bottom:8px;}
+.step p{color:#777;font-size:0.92rem;line-height:1.5;}
+.step-arrow{position:absolute;top:28px;right:-26px;font-size:1.5rem;color:#ccc;}
+
+/* ===== STATS ===== */
+.stats-band{
+  background:linear-gradient(90deg,var(--primary),#8e6ff5);color:#fff;padding:60px 20px;
+}
+.stats-grid2{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+.stat-num2{font-family:'Baloo 2';font-size:2.4rem;font-weight:800;}
+.stat-label2{opacity:.85;font-weight:700;font-size:0.9rem;}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.testi-card{background:#fff;border-radius:var(--radius);padding:26px;box-shadow:0 6px 20px rgba(0,0,0,.05);}
+.testi-stars{color:var(--warning);margin-bottom:10px;}
+.testi-text{color:#555;font-style:italic;margin-bottom:18px;line-height:1.6;}
+.testi-who{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.testi-name{font-weight:800;font-size:0.9rem;}
+.testi-role{color:#999;font-size:0.8rem;}
+
+/* ===== SAFETY / PARENTS SECTION ===== */
+.safety-section{background:var(--bg);border-radius:30px;margin:0 20px;padding:60px 40px;max-width:1150px;margin-inline:auto;}
+.safety-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.safety-points{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.safety-point{background:#fff;border-radius:16px;padding:18px;box-shadow:0 4px 14px rgba(0,0,0,.05);}
+.safety-point .ic{font-size:1.6rem;margin-bottom:8px;}
+.safety-point h4{font-size:1rem;margin-bottom:4px;}
+.safety-point p{font-size:0.85rem;color:#777;}
+
+/* ===== FAQ ===== */
+.faq-item{background:#fff;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.05);margin-bottom:12px;overflow:hidden;}
+.faq-q{padding:18px 22px;font-weight:800;display:flex;justify-content:space-between;cursor:pointer;color:var(--primary-dark);}
+.faq-a{padding:0 22px;max-height:0;overflow:hidden;transition:all .3s ease;color:#666;line-height:1.6;}
+.faq-item.open .faq-a{padding:0 22px 20px;max-height:300px;}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg);}
+.arrow{transition:transform .3s;}
+
+/* ===== FINAL CTA ===== */
+.final-cta{
+  background:linear-gradient(135deg,#6c5ce7,#8e6ff5 50%,#00cec9);
+  border-radius:30px;margin:0 20px 0;max-width:1150px;margin-inline:auto;
+  padding:70px 40px;text-align:center;color:#fff;position:relative;overflow:hidden;
+}
+.final-cta h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:14px;}
+.final-cta p{opacity:.9;max-width:520px;margin:0 auto 30px;font-size:1.05rem;}
+.final-cta .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.final-emoji{position:absolute;font-size:5rem;opacity:.15;}
+.e1{top:-20px;left:30px;}
+.e2{bottom:-30px;right:40px;}
+
+/* ===== FOOTER ===== */
+footer{background:#1b1b2b;color:#aaa;padding:60px 20px 30px;}
+.footer-grid{max-width:1150px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-logo{font-family:'Baloo 2';color:#fff;font-size:1.3rem;font-weight:800;margin-bottom:14px;}
+.footer-col h4{color:#fff;margin-bottom:16px;font-size:0.95rem;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:10px;font-size:0.9rem;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{max-width:1150px;margin:0 auto;border-top:1px solid #333;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.85rem;}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-visual{margin-top:40px;}
+  .big-feature,.big-feature.reverse{grid-template-columns:1fr;}
+  .big-feature.reverse .ft-visual{order:1;}
+  .big-feature.reverse .ft-text{order:2;}
+  .steps{grid-template-columns:1fr 1fr;}
+  .step-arrow{display:none;}
+  .stats-grid2{grid-template-columns:1fr 1fr;}
+  .safety-grid{grid-template-columns:1fr;}
+  .safety-points{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:700px){
+  .nav-links{display:none;}
+  .burger{display:block;}
+  .nav-cta .btn-secondary{display:none;}
+}
+@media(max-width:480px){
+  .features-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
-<script>
-// Registra il service worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then(() => console.log('✅ Service Worker registrato'))
-      .catch(err => console.log('❌ Errore SW:', err));
-  });
-}
-
-// Cattura l'evento di installazione per usare un bottone personalizzato
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  const installBtn = document.getElementById('install-btn');
-  if (installBtn) installBtn.style.display = 'inline-flex';
-});
-
-function installApp() {
-  if (!deferredPrompt) {
-    // iOS o browser che non supportano l'install automatico
-    showIOSInstructions();
-    return;
-  }
-  deferredPrompt.prompt();
-  deferredPrompt.userChoice.then((choice) => {
-    if (choice.outcome === 'accepted') {
-      console.log('🎉 App installata!');
-      toast('🎉 CyberEroi installata con successo!');
-    }
-    deferredPrompt = null;
-    document.getElementById('install-btn').style.display = 'none';
-  });
-}
-
-// Rileva iOS (Safari non supporta beforeinstallprompt)
-function isIOS() {
-  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-}
-function showIOSInstructions() {
-  alert('📱 Per installare su iPhone/iPad:\n\n1. Tocca il tasto Condividi (⬆️) in basso\n2. Scorri e scegli "Aggiungi alla schermata Home"\n3. Conferma!');
-}
-
-// Nascondi il bottone se l'app è già installata
-window.addEventListener('appinstalled', () => {
-  const installBtn = document.getElementById('install-btn');
-  if (installBtn) installBtn.style.display = 'none';
-});
-
-// Se è già in modalità standalone (già installata), nascondi bottone
-if (window.matchMedia('(display-mode: standalone)').matches) {
-  document.addEventListener('DOMContentLoaded', () => {
-    const installBtn = document.getElementById('install-btn');
-    if (installBtn) installBtn.style.display = 'none';
-  });
-}
-</script>
 <body>
 
-<header class="topbar">
-  <div class="logo">🛡️ OnlyPrivacy</div>
-  <div id="header-stats" class="header-stats"></div>
+<!-- NAVBAR -->
+<header>
+  <div class="nav-wrap">
+    <div class="logo">🛡️ CyberEroi</div>
+    <nav class="nav-links">
+      <a href="#features">Funzionalità</a>
+      <a href="#come-funziona">Come funziona</a>
+      <a href="#genitori">Per i genitori</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#" class="btn btn-secondary" style="padding:10px 18px;">Accedi</a>
+      <a href="#cta" class="btn btn-primary" style="padding:10px 20px;">Inizia Gratis 🚀</a>
+    </div>
+    <button class="burger">☰</button>
+  </div>
 </header>
-<nav id="navbar" class="navbar"></nav>
 
-<main id="app">
-  <section class="view" id="view-home"></section>
-  <section class="view" id="view-lessons"></section>
-  <section class="view" id="view-games"></section>
-  <section class="view" id="view-stories"></section>
-  <section class="view" id="view-emergency"></section>
-  <section class="view" id="view-avatar"></section>
-  <section class="view" id="view-trophies"></section>
-</main>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badge">🎮 Impara giocando — gratis per sempre</div>
+      <h1>Trasforma i ragazzi in <span class="hl1">Eroi</span> della <span class="hl2">Sicurezza Digitale</span></h1>
+      <p class="lead">CyberEroi insegna ai ragazzi delle medie a riconoscere truffe, proteggere la privacy e difendersi online, attraverso lezioni brevi, giochi e sfide interattive. Niente noia, solo avventura! 🚀</p>
+      <div class="hero-cta">
+        <a href="#cta" class="btn btn-primary">🎮 Inizia l'avventura</a>
+        <a href="#features" class="btn btn-secondary">Scopri come funziona</a>
+      </div>
+      <div class="hero-trust">
+        <span>⭐ 4.9/5 genitori</span>
+        <span>🏫 Usata in 200+ scuole</span>
+        <span>🔒 100% sicura e senza pubblicità</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+      <div class="float-badge badge-1">🏆 +40 punti!</div>
+      <div class="float-badge badge-2">🔥 Serie di 7 giorni</div>
+      <div class="float-badge badge-3">✅ Livello 5!</div>
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="phone-top">
+            <span class="phone-chip">💎 480 pt</span>
+            <span class="phone-chip">🔥 7</span>
+          </div>
+          <div class="phone-avatar">🦸<span class="crown">👑</span></div>
+          <div class="phone-name">Giulia, Lv. 6</div>
+          <div class="phone-level">Prossimo livello tra 20 punti</div>
+          <div class="phone-progress"><div class="phone-progress-fill"></div></div>
+          <div class="phone-card"><span class="ic">🔑</span> Password Impossibili ✅</div>
+          <div class="phone-card"><span class="ic">🎣</span> Truffe via Messaggio ✅</div>
+          <div class="phone-card"><span class="ic">🕵️</span> Proteggi la Privacy 🔓</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="footer">
-  <button class="link-btn" onclick="resetProgress()">🔄 Reset progressi</button> &nbsp;•&nbsp; OnlyPrivacy — impara, gioca, proteggiti
-</div>
-
-<div id="modal-overlay" class="modal-overlay" style="display:none">
-  <div class="modal-box">
-    <h2>🛡️ Benvenuto in OnlyPrivacy!</h2>
-    <p>Come ti chiami, Eroe?</p>
-    <input type="text" id="modalNameInput" placeholder="Il tuo nome o nickname" maxlength="20">
-    <button class="btn btn-primary" onclick="saveName()">Inizia l'avventura 🚀</button>
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <div>🏫 Scuole partner</div>
+    <div>👨‍👩‍👧 Consigliata da genitori</div>
+    <div>🧑‍🏫 Validata da pedagogisti</div>
+    <div>🛡️ Progetto Safer Internet</div>
   </div>
 </div>
 
-<div id="toast-container"></div>
+<!-- FEATURES OVERVIEW -->
+<section id="features">
+  <div class="container">
+    <div class="center" style="text-align:center;">
+      <span class="section-tag">COSA RENDE CYBEROI SPECIALE</span>
+      <h2 class="section-title">Un'app pensata come <span>un videogioco</span>,<br> non come un corso noioso</h2>
+      <p class="section-sub center">Ogni funzionalità è progettata per tenere alta la motivazione dei ragazzi, mentre imparano competenze fondamentali per la vita digitale.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card" style="border-top-color:#6c5ce7;">
+        <div class="feature-icon" style="background:#efe9ff;">🎮</div>
+        <h3>Livelli e Punti</h3>
+        <p>Ogni lezione completata fa guadagnare punti esperienza e fa salire di livello, proprio come in un videogioco.</p>
+      </div>
+      <div class="feature-card" style="border-top-color:#fd79a8;">
+        <div class="feature-icon" style="background:#ffeef5;">🧑‍🚀</div>
+        <h3>Avatar personalizzabile</h3>
+        <p>I ragazzi creano il proprio personaggio e sbloccano vestiti e accessori speciali superando le sfide.</p>
+      </div>
+      <div class="feature-card" style="border-top-color:#ffa502;">
+        <div class="feature-icon" style="background:#fff6e6;">🏅</div>
+        <h3>Trofei da collezionare</h3>
+        <p>Medaglie digitali per ogni traguardo raggiunto: dalla prima lezione al patentino finale.</p>
+      </div>
+      <div class="feature-card" style="border-top-color:#00cec9;">
+        <div class="feature-icon" style="background:#e6fffb;">🔥</div>
+        <h3>Serie giornaliera</h3>
+        <p>Basta anche solo 2 minuti al giorno per mantenere viva la propria striscia e ottenere piccoli premi.</p>
+      </div>
+      <div class="feature-card" style="border-top-color:#2ed573;">
+        <div class="feature-icon" style="background:#e9fff3;">📚</div>
+        <h3>Lezioni da 3 minuti</h3>
+        <p>Niente muri di testo: spiegazioni brevi, chiare e illustrate con fumetti e video animati.</p>
+      </div>
+      <div class="feature-card" style="border-top-color:#636e72;">
+        <div class="feature-icon" style="background:#f1f2f6;">🆘</div>
+        <h3>Pronto Soccorso</h3>
+        <p>Guide immediate passo-passo per sapere cosa fare in caso di account rubati, insulti o link pericolosi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG FEATURE 1: LEZIONI -->
+<section>
+  <div class="container">
+    <div class="big-feature">
+      <div class="ft-text">
+        <span class="section-tag">📚 LEZIONI BREVI</span>
+        <h3>Spiegazioni semplici, niente noia</h3>
+        <p>Ogni argomento viene spiegato in massimo 3 minuti, con un linguaggio adatto ai ragazzi delle medie: fumetti, storie e personaggi simpatici al posto di lunghi testi scolastici.</p>
+        <ul class="ft-list">
+          <li><span class="chk">✅</span> Come creare password impossibili da indovinare</li>
+          <li><span class="chk">✅</span> Riconoscere email e messaggi truffa</li>
+          <li><span class="chk">✅</span> Cosa non pubblicare sui social</li>
+          <li><span class="chk">✅</span> Difendersi dal cyberbullismo</li>
+          <li><span class="chk">✅</span> Evitare virus scaricando file e giochi</li>
+        </ul>
+      </div>
+      <div class="ft-visual">
+        <div class="mock-card mock-comic">
+          <h4 style="margin-bottom:12px;">🔑 Password Impossibili</h4>
+          <div class="bubble">🔑 Una password forte è come una porta blindata: più è complicata, più sei al sicuro!</div>
+          <div class="bubble">❌ "123456" è la prima cosa che un hacker prova.</div>
+          <div class="bubble me">✅ "Tr0pp0F0rt3!$" è lunga, con simboli e numeri: perfetta!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BIG FEATURE 2: PROVE PRATICHE -->
+    <div class="big-feature reverse">
+      <div class="ft-text">
+        <span class="section-tag">🧪 PROVE PRATICHE</span>
+        <h3>Si impara meglio mettendosi alla prova</h3>
+        <p>Dopo la teoria, si passa subito all'azione con sfide pratiche che simulano situazioni reali che i ragazzi incontrano online ogni giorno.</p>
+        <ul class="ft-list">
+          <li><span class="chk">✅</span> "Trova la Truffa": vero o falso messaggio?</li>
+          <li><span class="chk">✅</span> Testa-Password: quanto è sicura la tua password?</li>
+          <li><span class="chk">✅</span> Escape Room: salva il profilo hackerato</li>
+          <li><span class="chk">✅</span> Finto Profilo Social: trova gli errori di privacy</li>
+        </ul>
+      </div>
+      <div class="ft-visual">
+        <div class="mock-card">
+          <div class="mock-chat-header">🏦 Banca Sicura</div>
+          <div class="mock-chat-bubble">URGENTE: il tuo conto è stato sospeso. Clicca qui entro 24 ore: bit.ly/sblocca</div>
+          <div class="mock-choice">
+            <button class="safe">✅ È vero</button>
+            <button class="danger">🚨 È una truffa</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BIG FEATURE 3: STORIE -->
+    <div class="big-feature">
+      <div class="ft-text">
+        <span class="section-tag">📖 STORIE INTERATTIVE</span>
+        <h3>Le scelte hanno conseguenze (virtuali!)</h3>
+        <p>Storie a bivi dove il ragazzo decide cosa fare in situazioni delicate, scoprendo subito le conseguenze della propria scelta in un ambiente sicuro.</p>
+        <ul class="ft-list">
+          <li><span class="chk">✅</span> Scenari realistici su chat e social</li>
+          <li><span class="chk">✅</span> Scelte multiple con esiti diversi</li>
+          <li><span class="chk">✅</span> Spiegazione finale del perché una scelta è sicura o rischiosa</li>
+        </ul>
+      </div>
+      <div class="ft-visual">
+        <div class="mock-card mock-story">
+          <h4 style="margin-bottom:10px;">🎮 Lo sconosciuto nel gioco online</h4>
+          <p>Un giocatore misterioso ti scrive: "Sei simpatico/a! Mi mandi una foto?" Cosa fai?</p>
+          <button class="mock-story-opt">📷 Gliela mando</button>
+          <button class="mock-story-opt">🚫 Lo blocco e segnalo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BIG FEATURE 4: PRONTO SOCCORSO -->
+    <div class="big-feature reverse">
+      <div class="ft-text">
+        <span class="section-tag">🆘 PRONTO SOCCORSO</span>
+        <h3>Una guida sempre pronta nei momenti difficili</h3>
+        <p>Se qualcosa va storto, i ragazzi sanno esattamente cosa fare grazie a guide chiare passo-passo, sempre a portata di click.</p>
+        <ul class="ft-list">
+          <li><span class="chk">✅</span> "Mi hanno rubato l'account, cosa faccio?"</li>
+          <li><span class="chk">✅</span> "Qualcuno mi insulta in chat, come mi difendo?"</li>
+          <li><span class="chk">✅</span> "Ho cliccato un link strano, sono in pericolo?"</li>
+        </ul>
+      </div>
+      <div class="ft-visual">
+        <div class="mock-card mock-emergency">
+          <div class="acc">😱 Mi hanno rubato l'account <span>▲</span></div>
+          <div class="acc" style="opacity:.5;">😢 Qualcuno mi insulta in chat <span>▼</span></div>
+          <div class="acc" style="opacity:.5;">🔗 Ho cliccato un link strano <span>▼</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats-band">
+  <div class="stats-grid2">
+    <div><div class="stat-num2">5</div><div class="stat-label2">Lezioni tematiche</div></div>
+    <div><div class="stat-num2">4</div><div class="stat-label2">Prove pratiche</div></div>
+    <div><div class="stat-num2">12</div><div class="stat-label2">Trofei da sbloccare</div></div>
+    <div><div class="stat-num2">100%</div><div class="stat-label2">Gratuita e sicura</div></div>
+  </div>
+</section>
+
+<!-- COME FUNZIONA -->
+<section id="come-funziona">
+  <div class="container">
+    <div style="text-align:center;">
+      <span class="section-tag">COME FUNZIONA</span>
+      <h2 class="section-title">Pronti in <span>4 semplici passi</span></h2>
+      <p class="section-sub center">Bastano pochi minuti al giorno per iniziare a costruire competenze digitali che dureranno tutta la vita.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Crea l'avatar</h4>
+        <p>Scegli volto, colore e personalizza il tuo Eroe digitale.</p>
+        <div class="step-arrow">➔</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Guarda le lezioni</h4>
+        <p>Impara in 3 minuti con fumetti e video animati.</p>
+        <div class="step-arrow">➔</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Affronta le sfide</h4>
+        <p>Mettiti alla prova con giochi e storie interattive.</p>
+        <div class="step-arrow">➔</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Ottieni il patentino</h4>
+        <p>Scarica il tuo attestato digitale di Sicurezza Online.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:var(--bg);">
+  <div class="container">
+    <div style="text-align:center;">
+      <span class="section-tag">COSA DICONO DI NOI</span>
+      <h2 class="section-title">Genitori e insegnanti <span>lo adorano</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testi-text">"Mio figlio chiedeva di fare le lezioni ogni sera per non perdere la serie! Non pensavo fosse possibile con un argomento del genere."</p>
+        <div class="testi-who">
+          <div class="testi-avatar">👩</div>
+          <div><div class="testi-name">Laura M.</div><div class="testi-role">Mamma di Tommaso, 12 anni</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testi-text">"L'ho usata con tutta la classe durante l'ora di educazione civica. Finalmente uno strumento che i ragazzi usano con entusiasmo vero."</p>
+        <div class="testi-who">
+          <div class="testi-avatar">👨‍🏫</div>
+          <div><div class="testi-name">Prof. Andrea R.</div><div class="testi-role">Scuola Media "A. Manzoni"</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testi-text">"Il gioco 'Trova la Truffa' mi ha davvero aperto gli occhi. Ora controllo sempre i link prima di cliccare!"</p>
+        <div class="testi-who">
+          <div class="testi-avatar">🧒</div>
+          <div><div class="testi-name">Sofia, 13 anni</div><div class="testi-role">Utente CyberEroi</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GENITORI / SICUREZZA -->
+<section id="genitori">
+  <div class="safety-section">
+    <div class="safety-grid">
+      <div>
+        <span class="section-tag">🔒 SICURA E ADATTA A TUTTI</span>
+        <h2 class="section-title" style="font-size:2rem;">Pensata per rassicurare <span>i genitori</span></h2>
+        <p class="section-sub" style="margin-bottom:10px;">CyberEroi è stata progettata con grafica moderna e accattivante, adatta ai ragazzi delle medie, con funzionalità pensate per l'inclusione e la tranquillità di tutta la famiglia.</p>
+      </div>
+      <div class="safety-points">
+        <div class="safety-point"><div class="ic">🎨</div><h4>Grafica moderna</h4><p>Colorata e coinvolgente, non infantile.</p></div>
+        <div class="safety-point"><div class="ic">🔊</div><h4>Audio-lettura</h4><p>Legge i testi ad alta voce per chi ha difficoltà di lettura.</p></div>
+        <div class="safety-point"><div class="ic">🚫</div><h4>Senza pubblicità</h4><p>Nessun annuncio o contenuto esterno non controllato.</p></div>
+        <div class="safety-point"><div class="ic">🎓</div><h4>Patentino finale</h4><p>Un attestato digitale scaricabile a fine percorso.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container" style="max-width:800px;">
+    <div style="text-align:center;">
+      <span class="section-tag">DOMANDE FREQUENTI</span>
+      <h2 class="section-title">Hai dubbi? <span>Rispondiamo noi</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Per quale età è pensata CyberEroi? <span class="arrow">▼</span></div>
+        <div class="faq-a">L'app è pensata principalmente per ragazzi e ragazze della scuola secondaria di primo grado (11-14 anni), con un linguaggio e una grafica adatti a questa fascia d'età.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">È davvero gratuita? <span class="arrow">▼</span></div>
+        <div class="faq-a">Sì, tutte le funzionalità base di CyberEroi sono completamente gratuite, senza pubblicità e senza acquisti nascosti.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">I miei dati personali sono al sicuro? <span class="arrow">▼</span></div>
+        <div class="faq-a">Assolutamente sì. Non chiediamo dati sensibili e tutti i progressi vengono salvati in modo sicuro, nel rispetto della privacy dei minori.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Posso usarla anche a scuola con tutta la classe? <span class="arrow">▼</span></div>
+        <div class="faq-a">Certo! CyberEroi è utilizzata da diverse scuole come supporto per l'educazione civica digitale e i progetti di cittadinanza digitale.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Cosa ottengo alla fine del percorso? <span class="arrow">▼</span></div>
+        <div class="faq-a">Completando tutte le lezioni e le prove pratiche sblocchi il Patentino di Sicurezza Digitale, un attestato scaricabile e personalizzato con il tuo nome!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="cta">
+  <div class="final-cta">
+    <div class="final-emoji e1">🛡️</div>
+    <div class="final-emoji e2">🏆</div>
+    <h2>Pronto a diventare un Eroe della Sicurezza Digitale?</h2>
+    <p>Inizia oggi stesso, gratuitamente. Bastano 3 minuti al giorno per imparare a proteggersi online, divertendosi.</p>
+    <div class="btn-row">
+      <a href="#" class="btn btn-light">🚀 Inizia Gratis Ora</a>
+      <a href="https://bertonig2307-hub.github.io/OnlyPrivacy/" class="btn btn-outline-white" id="landing-install-btn">
+  📱 Scarica l'App
+</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">🛡️ CyberEroi</div>
+      <p style="font-size:0.9rem;line-height:1.6;max-width:280px;">L'app che trasforma l'educazione alla sicurezza digitale in un'avventura coinvolgente per ragazzi delle medie.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Prodotto</h4>
+      <ul>
+        <li><a href="#features">Funzionalità</a></li>
+        <li><a href="#come-funziona">Come funziona</a></li>
+        <li><a href="#genitori">Per i genitori</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Risorse</h4>
+      <ul>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Per le scuole</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legale</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Termini di servizio</a></li>
+        <li><a href="#">Contatti</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 CyberEroi. Tutti i diritti riservati.</div>
+    <div>Fatto con 💜 per rendere internet un posto più sicuro</div>
+  </div>
+</footer>
 
 <script>
-/* =========================================================
-   DATI
-========================================================= */
-const NAV = [
- {id:'home', label:'Home', icon:'🏠'},
- {id:'lessons', label:'Lezioni', icon:'📚'},
- {id:'games', label:'Prove', icon:'🧪'},
- {id:'stories', label:'Storie', icon:'📖'},
- {id:'emergency', label:'Soccorso', icon:'🆘'},
- {id:'avatar', label:'Avatar', icon:'🧑‍🚀'},
- {id:'trophies', label:'Trofei', icon:'🏅'}
-];
-
-const LESSONS = [
- {id:'password', icon:'🔑', color:'#6c5ce7', title:'Password Impossibili',
-  content:[
-    '🔑 Una password forte è come una porta blindata: più è complicata da aprire, più sei al sicuro!',
-    '❌ Password come "123456", "password" o il tuo nome sono le prime che un hacker prova.',
-    '✅ Una buona password ha più di 10 caratteri, mischia MAIUSCOLE e minuscole, contiene numeri e simboli (!,@,#) e non contiene parole ovvie.',
-    '💡 Trucco: pensa a una frase buffa e trasformala! Esempio: "MiPiaccionoIPanini2023!" è lunga e facile da ricordare.',
-    '🔁 Usa password diverse per ogni app: se un hacker scopre quella di un gioco, non deve poter entrare anche su Instagram!'
-  ],
-  quiz:[
-    {q:'Qual è la password più sicura?', options:['123456','Pizza2008','Tr0pp0F0rt3!$','ilmionomeeccola'], correct:2},
-    {q:'Perché non devi usare la stessa password ovunque?', options:['Perché è più difficile da ricordare','Perché se la scoprono in un posto, entrano ovunque','Perché le app lo vietano','Non è un problema'], correct:1}
-  ]
- },
- {id:'phishing', icon:'🎣', color:'#00b894', title:'Truffe via Messaggio',
-  content:[
-    '🎣 Il "phishing" è quando qualcuno finge di essere un\'azienda o una persona fidata per rubarti dati o soldi.',
-    '🚩 Segnali di allarme: messaggi URGENTI ("agisci entro 24 ore!"), link strani, errori di ortografia, richieste di password o dati personali.',
-    '🏦 Le banche, Instagram o Netflix NON ti chiederanno mai la password in un messaggio o email.',
-    '🔗 Prima di cliccare un link, controlla bene l\'indirizzo: "netflix-pagamenti.com" NON è Netflix vero!',
-    '👨‍👩‍👧 Nel dubbio, chiedi sempre a un adulto prima di cliccare o rispondere.'
-  ],
-  quiz:[
-    {q:'Quale di questi è un segnale di truffa?', options:['Un messaggio tranquillo di un amico','Un messaggio che dice "agisci entro 24 ore o perdi tutto!"','Un compito scolastico','Una foto di un gattino'], correct:1},
-    {q:'Cosa NON devi mai scrivere in un messaggio sospetto?', options:['Il tuo colore preferito','Password o dati della carta di credito','Il nome del tuo gioco preferito','Niente, puoi scrivere tutto'], correct:1}
-  ]
- },
- {id:'privacy', icon:'🕵️', color:'#0984e3', title:'Proteggi la tua Privacy',
-  content:[
-    '🕵️ Tutto ciò che pubblichi online può essere visto, salvato e condiviso da altri, anche per sempre!',
-    '🚫 NON pubblicare mai: indirizzo di casa, numero di telefono, nome della scuola, posizione in tempo reale.',
-    '📸 Attenzione alle foto: possono rivelare dove abiti o studi senza che te ne accorgi!',
-    '🔒 Imposta il profilo come "privato" così solo chi conosci può vedere i tuoi contenuti.',
-    '🤔 Prima di postare chiediti: "Lo direi a uno sconosciuto per strada?" Se la risposta è no... non pubblicarlo!'
-  ],
-  quiz:[
-    {q:'Cosa NON dovresti mai condividere pubblicamente?', options:['Il tuo hobby preferito','Il tuo indirizzo di casa','Un disegno che hai fatto','Il titolo di un libro'], correct:1},
-    {q:'Perché è utile un profilo privato?', options:['Perché è più colorato','Perché solo chi approvi può vedere i tuoi contenuti','Perché hai più follower','Non serve a niente'], correct:1}
-  ]
- },
- {id:'bullismo', icon:'🛡️', color:'#e17055', title:'Difenditi dal Cyberbullismo',
-  content:[
-    '🛡️ Il cyberbullismo è quando qualcuno usa internet per insultare, escludere o spaventare ripetutamente un\'altra persona.',
-    '😡 NON rispondere mai con rabbia o insulti: è proprio quello che vuole chi ti sta attaccando.',
-    '📸 Fai uno screenshot (foto della schermata) per avere le prove di quello che è successo.',
-    '🚫 Blocca la persona e segnala il contenuto tramite l\'app.',
-    '🗣️ Parlane SEMPRE con un adulto di fiducia: genitore, insegnante... non sei mai da solo/a!'
-  ],
-  quiz:[
-    {q:'Cosa devi fare se qualcuno ti insulta online?', options:['Rispondere con insulti peggiori','Fare uno screenshot, bloccare e segnalare','Ignorare per sempre senza dirlo a nessuno','Cancellare subito l\'account'], correct:1},
-    {q:'Perché non bisogna rispondere con rabbia a un bullo online?', options:['Perché è proprio quello che vuole','Perché è vietato dalla legge','Perché non si può scrivere di notte','Non c\'è un motivo'], correct:0}
-  ]
- },
- {id:'virus', icon:'🦠', color:'#e84393', title:'Niente Virus sul Telefono',
-  content:[
-    '🦠 I virus informatici si nascondono spesso in giochi "craccati", mod gratis o file scaricati da siti strani.',
-    '🏪 Scarica app e giochi SOLO dagli store ufficiali (Play Store, App Store).',
-    '⚠️ Diffida di scritte come "Scarica skin gratis!" o "Vinci V-bucks illimitati": sono quasi sempre trappole.',
-    '👨‍👩‍👧 Chiedi sempre a un adulto prima di installare qualcosa che non conosci.',
-    '🔄 Mantieni telefono e app sempre aggiornati: gli aggiornamenti correggono i punti deboli che i virus sfruttano.'
-  ],
-  quiz:[
-    {q:'Dove è sicuro scaricare un\'app?', options:['Da un link ricevuto da uno sconosciuto','Dallo store ufficiale (Play Store/App Store)','Da un sito che promette regali gratis','Da un messaggio su TikTok'], correct:1},
-    {q:'Cosa fare prima di installare un gioco sconosciuto?', options:['Installarlo subito','Chiedere a un adulto','Condividerlo con tutti','Niente di speciale'], correct:1}
-  ]
- }
-];
-
-const TRUFFA_MESSAGES = [
- {from:'Banca Sicura', avatar:'🏦', text:'URGENTE: il tuo conto è stato sospeso. Clicca qui entro 24 ore: bit.ly/sblocca-conto', isScam:true, explanation:'Le banche vere non chiedono mai di cliccare link urgenti via SMS, e a 12 anni di solito non si ha comunque un conto bancario personale!'},
- {from:'Mamma', avatar:'👩', text:'Ciao amore, stasera pizza o pasta? Fammi sapere entro le 18 😘', isScam:false, explanation:'Messaggio normale di un familiare, nessuna richiesta strana.'},
- {from:'Instagram Premi', avatar:'🎉', text:'Complimenti! Hai vinto un iPhone 15! Inserisci i tuoi dati qui per riceverlo: vinci-ora.net', isScam:true, explanation:'Se non hai partecipato a nessun concorso, non puoi aver vinto nulla. I premi veri non arrivano a caso!'},
- {from:'Prof. Rossi', avatar:'👨‍🏫', text:'Ricordo che domani c\'è la verifica di matematica, pagina 45.', isScam:false, explanation:'Comunicazione scolastica normale, nessun link o richiesta sospetta.'},
- {from:'Sconosciuto', avatar:'❓', text:'Ciao! Ho trovato il tuo profilo, sei simpatico/a. Mandami una tua foto e ti regalo V-bucks gratis!', isScam:true, explanation:'Uno sconosciuto che chiede foto in cambio di regali è sempre un pericolo: blocca e segnala!'},
- {from:'Nonna', avatar:'👵', text:'Buongiorno tesoro, ti aspetto domenica per pranzo come sempre!', isScam:false, explanation:'Messaggio affettuoso senza richieste insolite.'},
- {from:'Supporto Netflix', avatar:'📺', text:'Il pagamento non è andato a buon fine. Aggiorna la carta qui: netflix-pagamenti-sicuri.com', isScam:true, explanation:'Il dominio non è netflix.com: è un sito falso creato per rubare i dati della carta.'},
- {from:'Compagno di scuola', avatar:'🧑', text:'Hey, mi presti gli appunti di storia? Te li ridò domani!', isScam:false, explanation:'Richiesta normale tra compagni di scuola, nessun pericolo.'}
-];
-
-const ESCAPE_QUESTIONS = [
- {q:'Hai ricevuto un messaggio: "Clicca qui per vincere un premio!" Cosa fai?', options:['Clicco subito, voglio il premio!','Ignoro e non clicco link sospetti','Lo inoltro a tutti gli amici'], correct:1},
- {q:'Qual è la password più sicura?', options:['Password1','Fulmine$83Rosso!','12345678'], correct:1},
- {q:'Uno sconosciuto ti chiede il tuo indirizzo di casa in chat. Cosa fai?', options:['Glielo do, sembra gentile','Non lo do e blocco la persona','Gli chiedo perché gli serve'], correct:1},
- {q:'Un sito dice "Scarica questo file per skin gratis su Fortnite". Cosa fai?', options:['Scarico subito','Chiedo a un adulto ed evito siti non ufficiali','Lo condivido con gli amici'], correct:1},
- {q:'Un compagno ti manda messaggi cattivi ogni giorno. Cosa fai?', options:['Rispondo con insulti ancora peggiori','Salvo le prove, blocco e lo dico a un adulto','Non dico niente a nessuno'], correct:1}
-];
-
-const PROFILE_FIELDS = [
- {id:'nome', label:'👤 Nome visibile: Marco Alessandro Rossi', isError:true, why:'Usare nome e cognome completi espone troppo: meglio un nickname!'},
- {id:'scuola', label:'🏫 Scuola: Scuola Media "G. Leopardi" - Milano', isError:true, why:'Indicare la scuola permette a sconosciuti di trovarti facilmente di persona.'},
- {id:'indirizzo', label:'🏠 Vive a: Via delle Rose 12, Milano', isError:true, why:'L\'indirizzo di casa non va mai condiviso pubblicamente.'},
- {id:'telefono', label:'📱 Telefono: 333 123 4567', isError:true, why:'Il numero di telefono permette a chiunque di contattarti direttamente.'},
- {id:'bio', label:'✏️ Bio: Amo il calcio, i videogiochi e i cani 🐶⚽🎮', isError:false, why:'Parlare dei propri hobby senza dati sensibili va benissimo!'},
- {id:'compleanno', label:'🎂 Data di nascita completa: 14 Marzo 2012 (pubblica)', isError:true, why:'La data di nascita completa può essere usata per rubare la tua identità o scoprire la tua età esatta.'},
- {id:'posizione', label:'📍 Post: "Sono al parco Bianchi adesso!" con posizione in tempo reale', isError:true, why:'Condividere dove sei in tempo reale fa sapere a chiunque dove trovarti.'},
- {id:'amici', label:'👥 Lista amici pubblica, con 200 "amici" mai conosciuti di persona', isError:true, why:'Accettare sconosciuti come amici aumenta i rischi: accetta solo chi conosci davvero.'},
- {id:'privato', label:'🔒 Profilo impostato come "Privato"', isError:false, why:'Ottimo! Un profilo privato è più sicuro perché solo chi approvi può vedere i tuoi contenuti.'}
-];
-
-const STORIES = [
- {id:'sconosciuto', icon:'🎮', title:'Lo sconosciuto nel gioco online', desc:'Un giocatore misterioso ti scrive in chat...',
-  nodes:{
-   start:{text:'Stai giocando online quando un giocatore sconosciuto, "ShadowX99", inizia a chattare con te. Dopo un po\' ti scrive: "Sei davvero simpatico/a! Mi mandi una tua foto?"',
-     choices:[
-      {label:'📷 Gli mando una foto', next:'foto_bad'},
-      {label:'🚫 Lo blocco e segnalo', next:'blocco_good'},
-      {label:'❓ Gli chiedo perché la vuole', next:'chiedo_neutral'}
-     ]},
-   foto_bad:{text:'Mandi la foto. Dopo poco, ShadowX99 inizia a chiederti altre foto e informazioni personali, diventando insistente. Ti senti a disagio.', end:'bad', points:5,
-     result:'Non si dovrebbero mai mandare foto a sconosciuti online: una volta inviata, non hai più controllo su chi la vede. Se succede, blocca subito la persona e parlane con un adulto!'},
-   blocco_good:{text:'Blocchi e segnali subito ShadowX99. Il gioco conferma la segnalazione. Ti senti al sicuro e torni a divertirti con i tuoi amici veri.', end:'good', points:25,
-     result:'Ottima scelta! Bloccare e segnalare comportamenti sospetti è sempre la mossa giusta. Nessuno sconosciuto ha il diritto di chiederti foto o dati personali.'},
-   chiedo_neutral:{text:'Chiedi perché vuole una foto. Lui risponde: "Dai, fidati, solo tra noi 😉" e diventa più insistente.',
-     choices:[
-      {label:'📷 Ok, gliela mando', next:'foto_bad'},
-      {label:'🚫 Capisco che è sospetto, lo blocco', next:'blocco_good'}
-     ]}
-  }
- },
- {id:'link', icon:'🔗', title:'Il link sospetto', desc:'Un messaggio "da un amico" nasconde un pericolo...',
-  nodes:{
-   start:{text:'Ricevi un messaggio da un amico: "Guarda questo video pazzesco di te! [link strano]". Cosa fai?',
-     choices:[
-      {label:'🖱️ Clicco subito, sono curioso/a', next:'click_bad'},
-      {label:'💬 Chiedo prima all\'amico se l\'ha mandato lui', next:'ask_neutral'},
-      {label:'🚫 Ignoro e cancello il messaggio', next:'ignore_good'}
-     ]},
-   click_bad:{text:'Il link apre una pagina strana e il tuo account inizia a inviare lo stesso messaggio a tutti i tuoi contatti senza che tu lo voglia!', end:'bad', points:5,
-     result:'Molti virus si diffondono proprio così, usando account "clonati" per sembrare amici fidati. Non cliccare mai link sospetti, anche se sembrano venire da un amico!'},
-   ask_neutral:{text:'Scrivi al tuo amico e lui risponde: "Che link? Non ho mandato niente, mi hanno hackerato l\'account!" Meno male che hai chiesto prima!', end:'good', points:25,
-     result:'Perfetto! Controllare prima di agire è sempre una scelta saggia. Il suo account era stato violato e usato per inviare link pericolosi.'},
-   ignore_good:{text:'Ignori e cancelli il messaggio sospetto. Dopo poco il tuo amico ti avvisa che il suo account è stato hackerato.', end:'good', points:25,
-     result:'Bravo/a! Hai evitato il pericolo senza nemmeno doverci pensare troppo. Diffidare dei link strani è sempre la scelta migliore.'}
-  }
- }
-];
-
-const EMERGENCY = [
- {title:'😱 Mi hanno rubato l\'account Instagram/TikTok, cosa faccio?', steps:[
-   'Non farti prendere dal panico, si può risolvere!',
-   'Vai sul sito ufficiale dell\'app e cerca "Account compromesso" o "Problemi ad accedere".',
-   'Segui la procedura di recupero (di solito via email o numero di telefono collegato).',
-   'Avvisa subito un genitore o un adulto di fiducia.',
-   'Se il profilo pubblica cose strane, avvisa i tuoi amici che non sei stato/a tu.',
-   'Una volta recuperato, cambia subito la password e attiva la verifica in due passaggi!'
- ]},
- {title:'😢 Qualcuno mi insulta o mi ricatta in chat, come mi difendo?', steps:[
-   'Non rispondere con rabbia o minacce: è quello che vuole chi ti infastidisce.',
-   'Fai subito uno screenshot (foto della schermata) come prova.',
-   'Blocca la persona sull\'app.',
-   'Segnala il messaggio o il profilo tramite l\'apposita funzione.',
-   'Parlane SUBITO con un genitore, un insegnante o un adulto di fiducia: non sei solo/a!',
-   'Se ti senti in pericolo puoi contattare anche il Telefono Azzurro al 19696 (gratuito).'
- ]},
- {title:'🔗 Ho cliccato un link strano, il telefono è in pericolo?', steps:[
-   'Non inserire nessuna password o dato personale nella pagina che si è aperta.',
-   'Chiudi subito la pagina o l\'app.',
-   'Non scaricare o installare nulla che ti viene proposto.',
-   'Avvisa un adulto e, se hai inserito password o dati, cambiali subito.',
-   'Controlla nei giorni successivi se noti comportamenti strani sul telefono o sugli account.'
- ]},
- {title:'📥 Ho scaricato un file o un gioco strano, cosa faccio?', steps:[
-   'Non aprire il file se non sei sicuro di cosa sia.',
-   'Chiedi a un adulto prima di installare giochi o app da fonti non ufficiali.',
-   'Usa sempre gli store ufficiali (Play Store, App Store).',
-   'Se il telefono si comporta in modo strano (rallenta, pubblicità continue), avvisa subito un adulto.',
-   'Fai una scansione antivirus se possibile.'
- ]}
-];
-
-const AVATAR_FACES = [
- {emoji:'🙂', lvl:1},{emoji:'😎', lvl:1},{emoji:'🤠', lvl:1},
- {emoji:'🤓', lvl:2},{emoji:'🥷', lvl:3},{emoji:'🦸', lvl:4},
- {emoji:'🧙', lvl:5},{emoji:'🤖', lvl:6},{emoji:'👑', lvl:8}
-];
-const AVATAR_COLORS = ['#6c5ce7','#00b894','#0984e3','#e17055','#fd79a8','#fdcb6e','#e84393','#00cec9'];
-const ACCESSORIES = [
-  {id:'none', emoji:''},
-  {id:'cappello', emoji:'🎩', trophy:'tutte_lezioni'},
-  {id:'occhiali', emoji:'🕶️', trophy:'password_pro'},
-  {id:'mantello', emoji:'🦸', trophy:'escape'},
-  {id:'corona', emoji:'👑', trophy:'patentino'}
-];
-
-const TROPHIES = [
- {id:'benvenuto', icon:'👋', title:'Benvenuto Eroe', desc:'Hai iniziato il tuo percorso', cond:s=>true},
- {id:'prima_lezione', icon:'📘', title:'Prima Lezione', desc:'Hai completato la tua prima lezione', cond:s=>s.lessonsCompleted.length>=1},
- {id:'tutte_lezioni', icon:'🎓', title:'Studente Modello', desc:'Hai completato tutte le lezioni', cond:s=>s.lessonsCompleted.length>=LESSONS.length},
- {id:'password_pro', icon:'🔐', title:'Password Pro', desc:'Hai creato una password sicurissima', cond:s=>s.flags && s.flags.passwordPro},
- {id:'cacciatore_truffe', icon:'🕵️‍♂️', title:'Cacciatore di Truffe', desc:'Hai superato "Trova la Truffa"', cond:s=>s.gamesCompleted.includes('truffa')},
- {id:'escape', icon:'🗝️', title:'Fuga Riuscita', desc:'Hai completato la Escape Room', cond:s=>s.gamesCompleted.includes('escape')},
- {id:'privacy_guard', icon:'🛡️', title:'Guardiano della Privacy', desc:'Hai corretto il profilo finto', cond:s=>s.gamesCompleted.includes('profilo')},
- {id:'narratore', icon:'📖', title:'Esploratore di Storie', desc:'Hai completato una storia', cond:s=>s.storiesCompleted.length>=1},
- {id:'streak3', icon:'🔥', title:'Costanza x3', desc:'3 giorni di fila', cond:s=>s.streak.count>=3},
- {id:'streak7', icon:'🌟', title:'Settimana Cyber', desc:'7 giorni di fila', cond:s=>s.streak.count>=7},
- {id:'livello5', icon:'🚀', title:'Livello 5', desc:'Hai raggiunto il livello 5', cond:s=>getLevel(s.points)>=5},
- {id:'patentino', icon:'🏆', title:'Patentino Ottenuto', desc:'Hai completato il percorso completo', cond:s=>s.lessonsCompleted.length>=LESSONS.length && s.gamesCompleted.length>=4}
-];
-
-/* =========================================================
-   STATO
-========================================================= */
-let state = JSON.parse(localStorage.getItem('cyberEroiState')||'null') || {
-  name:'', avatarFace:'🙂', avatarColor:'#6c5ce7', avatarAccessory:'none',
-  points:0, trophies:[], streak:{count:0,lastDate:null},
-  lessonsCompleted:[], gamesCompleted:[], storiesCompleted:[], flags:{}
-};
-function saveState(){ localStorage.setItem('cyberEroiState', JSON.stringify(state)); }
-function esc(s){ const d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
-function getLevel(points){ return Math.floor(points/150)+1; }
-
-let currentView='home';
-let currentLessonId=null, lessonAnswers={};
-let currentGame=null;
-let truffaIndex=0, truffaScore=0;
-let escapeIndex=0, escapeLives=3;
-let profiloSelected = new Set();
-let currentStory=null, currentNode=null;
-let openAccordion=null;
-
-/* =========================================================
-   UTILITY
-========================================================= */
-function toast(msg){
-  const t=document.createElement('div');
-  t.className='toast'; t.textContent=msg;
-  document.getElementById('toast-container').appendChild(t);
-  setTimeout(()=>t.classList.add('show'),50);
-  setTimeout(()=>{t.classList.remove('show'); setTimeout(()=>t.remove(),400);},3000);
-}
-function addPoints(n){
-  const oldLevel=getLevel(state.points);
-  state.points+=n; saveState();
-  toast(`✨ +${n} punti!`);
-  const newLevel=getLevel(state.points);
-  if(newLevel>oldLevel) setTimeout(()=>toast(`🎉 Livello ${newLevel} raggiunto!`),700);
-  renderHeader();
-}
-function checkTrophies(){
-  TROPHIES.forEach(t=>{
-    if(!state.trophies.includes(t.id) && t.cond(state)){
-      state.trophies.push(t.id); saveState();
-      toast(`🏆 Nuovo trofeo: ${t.title}!`);
-    }
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click', ()=>{
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
   });
-}
-function updateStreak(){
-  const today=new Date().toDateString();
-  if(state.streak.lastDate===today) return;
-  const yesterday=new Date(Date.now()-86400000).toDateString();
-  state.streak.count = (state.streak.lastDate===yesterday)? state.streak.count+1 : 1;
-  state.streak.lastDate=today;
-  addPoints(5);
-  saveState();
-}
-function speak(text){
-  if(!window.speechSynthesis){ alert('Lettura vocale non supportata su questo dispositivo'); return; }
-  const clean = text.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu,'');
-  speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(clean);
-  u.lang='it-IT'; u.rate=0.95;
-  speechSynthesis.speak(u);
-}
-function resetProgress(){
-  if(confirm('Sei sicuro di voler cancellare tutti i tuoi progressi?')){
-    localStorage.removeItem('cyberEroiState'); location.reload();
-  }
-}
-
-/* =========================================================
-   NAV & RENDER PRINCIPALE
-========================================================= */
-function renderNav(){
-  document.getElementById('navbar').innerHTML = NAV.map(n=>
-    `<button class="navbtn" data-view="${n.id}" onclick="nav('${n.id}')"><span class="navicon">${n.icon}</span><span class="navlabel">${n.label}</span></button>`
-  ).join('');
-}
-function nav(view){ currentView=view; render(); }
-function renderHeader(){
-  const level=getLevel(state.points);
-  document.getElementById('header-stats').innerHTML = `
-    <div class="hstat">${state.avatarFace} Lv.${level}</div>
-    <div class="hstat">💎 ${state.points}</div>
-    <div class="hstat">🔥 ${state.streak.count}</div>`;
-}
-function render(){
-  renderHeader();
-  document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active', b.dataset.view===currentView));
-  document.querySelectorAll('.view').forEach(v=>v.style.display='none');
-  document.getElementById('view-'+currentView).style.display='block';
-  const fn = {
-    home:renderHome, lessons:renderLessons, games:renderGames, stories:renderStories,
-    emergency:renderEmergency, avatar:renderAvatar, trophies:renderTrophies, certificate:renderCertificate
-  }[currentView];
-  if(fn) fn();
-  window.scrollTo(0,0);
-}
-
-/* =========================================================
-   HOME
-========================================================= */
-function renderHome(){
-  const level=getLevel(state.points);
-  document.getElementById('view-home').innerHTML = `
-  <div class="hero">
-    <div class="hero-avatar" style="background:${state.avatarColor}">${state.avatarFace}${state.avatarAccessory!=='none'?`<span class="avatar-accessory-small">${getAccessoryEmoji(state.avatarAccessory)}</span>`:''}</div>
-    <h1>Ciao, ${esc(state.name)||'Eroe'}! 👋</h1>
-    <p>Benvenuto in <strong>OnlyPrivacy</strong>: la tua avventura per diventare un vero esperto di sicurezza digitale!</p>
-  </div>
-  <div class="stats-grid">
-    <div class="stat-card"><div class="stat-num">${level}</div><div class="stat-label">Livello</div></div>
-    <div class="stat-card"><div class="stat-num">${state.points}</div><div class="stat-label">Punti</div></div>
-    <div class="stat-card"><div class="stat-num">🔥${state.streak.count}</div><div class="stat-label">Giorni di fila</div></div>
-    <div class="stat-card"><div class="stat-num">${state.trophies.length}</div><div class="stat-label">Trofei</div></div>
-  </div>
-  <div class="cta-row">
-    <button class="btn btn-primary" onclick="nav('lessons')">📚 Vai alle Lezioni</button>
-    <button class="btn btn-secondary" onclick="nav('games')">🧪 Prove Pratiche</button>
-    <button class="btn btn-secondary" onclick="nav('stories')">📖 Storie</button>
-  </div>
-</div>
-<div class="info-card">
-    <h3>Come funziona?</h3>
-    <p>Guarda le lezioni, gioca alle prove pratiche, leggi le storie e raccogli punti e trofei! Torna ogni giorno per mantenere la tua serie 🔥</p>
-  </div>`;
-}
-
-/* =========================================================
-   LEZIONI
-========================================================= */
-function renderLessons(){
-  const el=document.getElementById('view-lessons');
-  if(!currentLessonId){
-    let html = `<h2>📚 Lezioni Veloci</h2><p class="subtitle">Solo 3 minuti per diventare più furbo del pericolo!</p><div class="grid">`;
-    LESSONS.forEach((l,i)=>{
-      const done = state.lessonsCompleted.includes(l.id);
-      const locked = i>0 && !state.lessonsCompleted.includes(LESSONS[i-1].id);
-      html += `<div class="card lesson-card ${locked?'locked':''}" style="--accent:${l.color}" onclick="openLesson('${l.id}')">
-        <div class="card-icon">${locked?'🔒':l.icon}</div>
-        <h3>${l.title}</h3>
-        <p>${locked?'Completa la lezione precedente':(done?'✅ Completata':'Nuova lezione')}</p>
-      </div>`;
-    });
-    html += `</div>`;
-    el.innerHTML = html;
-  } else {
-    const l = LESSONS.find(x=>x.id===currentLessonId);
-    let html = `<button class="btn btn-back" onclick="currentLessonId=null;render()">⬅ Torna alle lezioni</button>
-    <div class="lesson-detail" style="--accent:${l.color}">
-    <h2>${l.icon} ${l.title}</h2>
-    <button class="btn btn-speak" onclick="speakLesson('${l.id}')">🔊 Ascolta la lezione</button>
-    <div class="comic-box">${l.content.map(p=>`<div class="comic-bubble">${p}</div>`).join('')}</div>`;
-    if(!state.lessonsCompleted.includes(l.id)){
-      html += renderLessonQuiz(l);
-    } else {
-      html += `<div class="success-box">✅ Hai già completato questa lezione!</div>`;
-    }
-    html += `</div>`;
-    el.innerHTML = html;
-  }
-}
-function openLesson(id){
-  const idx = LESSONS.findIndex(l=>l.id===id);
-  if(idx>0 && !state.lessonsCompleted.includes(LESSONS[idx-1].id)) return;
-  currentLessonId=id; lessonAnswers={}; render();
-}
-function speakLesson(id){ const l=LESSONS.find(x=>x.id===id); speak(l.content.join('. ')); }
-function renderLessonQuiz(l){
-  let html = `<div class="quiz-box"><h3>📝 Metti alla prova quello che hai imparato!</h3>`;
-  l.quiz.forEach((q,qi)=>{
-    html += `<div class="quiz-question"><p><strong>${qi+1}. ${q.q}</strong></p>`;
-    q.options.forEach((opt,oi)=>{
-      html += `<label class="quiz-option"><input type="radio" name="q${qi}" value="${oi}" onchange="setLessonAnswer(${qi},${oi})"> ${opt}</label>`;
-    });
-    html += `</div>`;
-  });
-  html += `<button class="btn btn-primary" onclick="submitLessonQuiz('${l.id}')">Invia risposte ✅</button><div id="quiz-feedback"></div></div>`;
-  return html;
-}
-function setLessonAnswer(qi,oi){ lessonAnswers[qi]=oi; }
-function submitLessonQuiz(lessonId){
-  const l = LESSONS.find(x=>x.id===lessonId);
-  let correct=0;
-  l.quiz.forEach((q,qi)=>{ if(lessonAnswers[qi]===q.correct) correct++; });
-  const fb=document.getElementById('quiz-feedback');
-  if(correct===l.quiz.length){
-    fb.innerHTML = `<div class="success-box">🎉 Perfetto! Tutte le risposte corrette! +30 punti.</div>`;
-    if(!state.lessonsCompleted.includes(lessonId)){
-      state.lessonsCompleted.push(lessonId); addPoints(30); saveState(); checkTrophies();
-    }
-    setTimeout(()=>{ currentLessonId=null; render(); },1800);
-  } else {
-    fb.innerHTML = `<div class="error-box">Hai risposto correttamente a ${correct} su ${l.quiz.length} domande. Riprova! 💪</div>`;
-  }
-}
-
-/* =========================================================
-   GIOCHI / PROVE PRATICHE
-========================================================= */
-function renderGames(){
-  const el=document.getElementById('view-games');
-  if(!currentGame){
-    el.innerHTML = `<h2>🧪 Prove Pratiche</h2><p class="subtitle">Mettiti alla prova con queste sfide interattive!</p>
-    <div class="grid">
-      <div class="card game-card" onclick="openGame('truffa')"><div class="card-icon">🕵️‍♂️</div><h3>Trova la Truffa</h3><p>Vero o falso? Scoprilo!</p>${state.gamesCompleted.includes('truffa')?'<p>✅ Completato</p>':''}</div>
-      <div class="card game-card" onclick="openGame('password')"><div class="card-icon">🔐</div><h3>Testa-Password</h3><p>Quanto è sicura la tua password?</p>${state.gamesCompleted.includes('password')?'<p>✅ Completato</p>':''}</div>
-      <div class="card game-card" onclick="openGame('escape')"><div class="card-icon">🗝️</div><h3>Escape Room Digitale</h3><p>Salva il tuo profilo hackerato!</p>${state.gamesCompleted.includes('escape')?'<p>✅ Completato</p>':''}</div>
-      <div class="card game-card" onclick="openGame('profilo')"><div class="card-icon">🙈</div><h3>Finto Profilo Social</h3><p>Trova gli errori di privacy!</p>${state.gamesCompleted.includes('profilo')?'<p>✅ Completato</p>':''}</div>
-    </div>`;
-  } else {
-    el.innerHTML = `<button class="btn btn-back" onclick="currentGame=null;render()">⬅ Torna alle prove</button><div id="game-container"></div>`;
-    ({truffa:renderTruffaGame, password:renderPasswordGame, escape:renderEscapeGame, profilo:renderProfiloGame})[currentGame]();
-  }
-}
-function openGame(id){
-  currentGame=id;
-  if(id==='truffa'){ truffaIndex=0; truffaScore=0; }
-  if(id==='escape'){ escapeIndex=0; escapeLives=3; }
-  if(id==='profilo'){ profiloSelected=new Set(); }
-  render();
-}
-function finishGame(id){
-  if(!state.gamesCompleted.includes(id)){
-    state.gamesCompleted.push(id); addPoints(40); saveState(); checkTrophies();
-  }
-  currentGame=null; render();
-}
-
-/* --- Trova la Truffa --- */
-function renderTruffaGame(){
-  const c=document.getElementById('game-container');
-  if(truffaIndex>=TRUFFA_MESSAGES.length){
-    c.innerHTML = `<div class="result-box"><h2>🎉 Gioco completato!</h2><p>Hai indovinato ${truffaScore} su ${TRUFFA_MESSAGES.length} messaggi!</p>
-    <button class="btn btn-primary" onclick="finishGame('truffa')">Riscuoti punti 🏆</button></div>`;
-    return;
-  }
-  const m=TRUFFA_MESSAGES[truffaIndex];
-  c.innerHTML = `<div class="phone-mock">
-    <div class="chat-header">${m.avatar} ${m.from}</div>
-    <div class="chat-bubble">${m.text}</div>
-  </div>
-  <div class="choice-row">
-    <button class="btn btn-safe" onclick="answerTruffa(false)">✅ È vero</button>
-    <button class="btn btn-danger" onclick="answerTruffa(true)">🚨 È una truffa</button>
-  </div>
-  <div id="truffa-feedback"></div>
-  <p class="progress-text">Messaggio ${truffaIndex+1} di ${TRUFFA_MESSAGES.length}</p>`;
-}
-function answerTruffa(guess){
-  const m=TRUFFA_MESSAGES[truffaIndex];
-  const correct = guess===m.isScam;
-  if(correct) truffaScore++;
-  document.getElementById('truffa-feedback').innerHTML = `<div class="${correct?'success-box':'error-box'}">${correct?'✅ Esatto!':'❌ Sbagliato!'} ${m.explanation}</div>`;
-  document.querySelectorAll('.choice-row button').forEach(b=>b.disabled=true);
-  setTimeout(()=>{ truffaIndex++; renderTruffaGame(); },2200);
-}
-
-/* --- Testa Password --- */
-const COMMON_PW=['123456','password','123456789','12345678','12345','1234567','qwerty','abc123','111111','123123','ciao123','password1','admin','iloveyou','000000','calcio','1234','welcome'];
-function analyzePassword(pw){
-  const lower=pw.toLowerCase();
-  if(COMMON_PW.includes(lower)){
-    return {score:0, time:'2 secondi', label:'Pericolosissima!', color:'#ff4757', tips:['Questa è tra le password più usate al mondo! Un hacker la indovina all\'istante.']};
-  }
-  let score=0; const tips=[];
-  if(pw.length>=12) score+=2; else if(pw.length>=8) score+=1; else tips.push('Usa almeno 8 caratteri, meglio 12+');
-  if(/[a-z]/.test(pw)&&/[A-Z]/.test(pw)) score+=1; else tips.push('Mescola lettere maiuscole e minuscole');
-  if(/[0-9]/.test(pw)) score+=1; else tips.push('Aggiungi qualche numero');
-  if(/[^A-Za-z0-9]/.test(pw)) score+=1; else tips.push('Aggiungi un simbolo speciale (!,@,#...)');
-  const levels=[
-    {max:1,time:'pochi secondi',label:'Debolissima',color:'#ff4757'},
-    {max:2,time:'qualche minuto',label:'Debole',color:'#ffa502'},
-    {max:3,time:'qualche giorno',label:'Discreta',color:'#f1c40f'},
-    {max:4,time:'qualche mese',label:'Buona',color:'#2ed573'},
-    {max:5,time:'centinaia di anni',label:'Sicurissima!',color:'#1abc9c'}
-  ];
-  const lvl = levels.find(l=>score<=l.max) || levels[levels.length-1];
-  return {score, time:lvl.time, label:lvl.label, color:lvl.color, tips};
-}
-function renderPasswordGame(){
-  document.getElementById('game-container').innerHTML = `<h2>🔐 Testa-Password</h2><p>Scrivi una password (anche finta, non usare quella vera!) e scopri quanto è sicura.</p>
-  <input type="text" id="pwInput" class="pw-input" placeholder="Scrivi qui..." oninput="checkPwLive()">
-  <div id="pw-result"></div>`;
-}
-function checkPwLive(){
-  const pw=document.getElementById('pwInput').value;
-  const res=document.getElementById('pw-result');
-  if(!pw){ res.innerHTML=''; return; }
-  const a=analyzePassword(pw);
-  res.innerHTML = `<div class="meter"><div class="meter-fill" style="width:${a.score*20}%;background:${a.color}"></div></div>
-  <p style="color:${a.color};font-weight:bold">${a.label} — un hacker ci metterebbe circa ${a.time}!</p>
-  ${a.tips.length?`<ul>${a.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`:''}`;
-  if(a.label==='Sicurissima!' && !state.flags.passwordTested){
-    state.flags.passwordTested=true; state.flags.passwordPro=true;
-    if(!state.gamesCompleted.includes('password')) state.gamesCompleted.push('password');
-    saveState(); addPoints(30); checkTrophies(); renderHeader();
-    res.innerHTML += `<div class="success-box">🎉 +30 punti per aver creato una password sicura!</div>`;
-  }
-}
-
-/* --- Escape Room --- */
-function renderEscapeGame(){
-  const c=document.getElementById('game-container');
-  if(escapeLives<=0){
-    c.innerHTML = `<div class="result-box"><h2>💀 Game Over</h2><p>L'hacker ha preso il controllo! Ma puoi riprovare.</p>
-    <button class="btn btn-primary" onclick="escapeIndex=0;escapeLives=3;renderEscapeGame()">Riprova 🔁</button></div>`;
-    return;
-  }
-  if(escapeIndex>=ESCAPE_QUESTIONS.length){
-    c.innerHTML = `<div class="result-box"><h2>🗝️ Sei riuscito/a a fuggire! Profilo salvato!</h2><p>Hai dimostrato di saperti difendere online.</p>
-    <button class="btn btn-primary" onclick="finishGame('escape')">Riscuoti punti 🏆</button></div>`;
-    return;
-  }
-  const q=ESCAPE_QUESTIONS[escapeIndex];
-  c.innerHTML = `<div class="escape-header"><span>🚪 Porta ${escapeIndex+1}/${ESCAPE_QUESTIONS.length}</span><span>${'❤️'.repeat(escapeLives)}</span></div>
-  <div class="escape-question"><p><strong>${q.q}</strong></p>
-  ${q.options.map((o,i)=>`<button class="btn btn-option" onclick="answerEscape(${i})">${o}</button>`).join('')}
-  </div><div id="escape-feedback"></div>`;
-}
-function answerEscape(i){
-  const q=ESCAPE_QUESTIONS[escapeIndex];
-  if(i===q.correct){
-    document.getElementById('escape-feedback').innerHTML = `<div class="success-box">✅ Porta aperta!</div>`;
-    setTimeout(()=>{ escapeIndex++; renderEscapeGame(); },1100);
-  } else {
-    escapeLives--;
-    document.getElementById('escape-feedback').innerHTML = `<div class="error-box">❌ Risposta sbagliata! Hai perso una vita.</div>`;
-    setTimeout(()=>renderEscapeGame(),1100);
-  }
-}
-
-/* --- Finto Profilo --- */
-function renderProfiloGame(){
-  document.getElementById('game-container').innerHTML = `<h2>🙈 Trova gli errori di Privacy</h2><p>Clicca su tutti gli elementi del profilo che NON dovrebbero essere pubblici!</p>
-  <div class="profile-mock">${PROFILE_FIELDS.map(f=>`<div class="profile-field ${profiloSelected.has(f.id)?'selected':''}" onclick="toggleProfileField('${f.id}')">${f.label}</div>`).join('')}</div>
-  <button class="btn btn-primary" onclick="submitProfileGame()">Controlla risposte ✅</button>
-  <div id="profilo-feedback"></div>`;
-}
-function toggleProfileField(id){
-  if(profiloSelected.has(id)) profiloSelected.delete(id); else profiloSelected.add(id);
-  renderProfiloGame();
-}
-function submitProfileGame(){
-  let correct=0, wrong=0;
-  const errors = PROFILE_FIELDS.filter(f=>f.isError);
-  PROFILE_FIELDS.forEach(f=>{
-    if(f.isError && profiloSelected.has(f.id)) correct++;
-    if(!f.isError && profiloSelected.has(f.id)) wrong++;
-  });
-  const explanations = errors.map(f=>`<li>${f.label} → ${f.why}</li>`).join('');
-  document.getElementById('profilo-feedback').innerHTML = `
-  <div class="${(correct===errors.length && wrong===0)?'success-box':'error-box'}">Hai trovato ${correct} errori su ${errors.length} (${wrong} scelte sbagliate).</div>
-  <p><strong>Spiegazioni:</strong></p><ul>${explanations}</ul>
-  <button class="btn btn-primary" onclick="finishGame('profilo')">Riscuoti punti 🏆</button>`;
-}
-
-/* =========================================================
-   STORIE
-========================================================= */
-function renderStories(){
-  const el=document.getElementById('view-stories');
-  if(!currentStory){
-    el.innerHTML = `<h2>📖 Storie Interattive</h2><p class="subtitle">Scegli, scopri cosa succede!</p>
-    <div class="grid">${STORIES.map(s=>`<div class="card story-card" onclick="openStory('${s.id}')"><div class="card-icon">${s.icon}</div><h3>${s.title}</h3><p>${s.desc}</p>${state.storiesCompleted.includes(s.id)?'<p>✅ Completata</p>':''}</div>`).join('')}</div>`;
-  } else {
-    const story=STORIES.find(s=>s.id===currentStory);
-    const node=story.nodes[currentNode];
-    let html = `<button class="btn btn-back" onclick="currentStory=null;render()">⬅ Torna alle storie</button>
-    <div class="story-box"><h2>${story.icon} ${story.title}</h2>
-    <button class="btn btn-speak" onclick="speakCurrentStoryNode()">🔊 Ascolta</button>
-    <p class="story-text">${node.text}</p>`;
-    if(node.end){
-      html += `<div class="${node.end==='good'?'success-box':'error-box'}"><strong>${node.end==='good'?'🎉 Ottima scelta!':'⚠️ Attenzione!'}</strong><p>${node.result}</p></div>
-      <button class="btn btn-primary" onclick="finishStory('${story.id}',${node.points})">Continua (+${node.points} punti) 🏆</button>`;
-    } else {
-      html += `<div class="choice-row-col">${node.choices.map(ch=>`<button class="btn btn-option" onclick="goToNode('${ch.next}')">${ch.label}</button>`).join('')}</div>`;
-    }
-    html += `</div>`;
-    el.innerHTML = html;
-  }
-}
-function openStory(id){ currentStory=id; currentNode='start'; render(); }
-function goToNode(next){ currentNode=next; render(); }
-function speakCurrentStoryNode(){ const story=STORIES.find(s=>s.id===currentStory); speak(story.nodes[currentNode].text); }
-function finishStory(id, points){
-  if(!state.storiesCompleted.includes(id)){
-    state.storiesCompleted.push(id); addPoints(points); saveState(); checkTrophies();
-  } else { addPoints(5); }
-  currentStory=null; render();
-}
-
-/* =========================================================
-   PRONTO SOCCORSO
-========================================================= */
-function renderEmergency(){
-  document.getElementById('view-emergency').innerHTML = `<h2>🆘 Pronto Soccorso Digitale</h2><p class="subtitle">Cosa fare se... Guide passo-passo per ogni emergenza!</p>
-  <div class="accordion">${EMERGENCY.map((e,i)=>`
-    <div class="accordion-item">
-      <div class="accordion-header" onclick="toggleAccordion(${i})">${e.title} <span>${openAccordion===i?'▲':'▼'}</span></div>
-      ${openAccordion===i?`<div class="accordion-body"><ol>${e.steps.map(s=>`<li>${s}</li>`).join('')}</ol><button class="btn btn-speak" onclick="speakEmergency(${i})">🔊 Ascolta</button></div>`:''}
-    </div>`).join('')}</div>`;
-}
-function toggleAccordion(i){ openAccordion = openAccordion===i?null:i; renderEmergency(); }
-function speakEmergency(i){ speak(EMERGENCY[i].steps.join('. ')); }
-
-/* =========================================================
-   AVATAR
-========================================================= */
-function getAccessoryEmoji(id){ const a=ACCESSORIES.find(x=>x.id===id); return a?a.emoji:''; }
-function renderAvatar(){
-  const level=getLevel(state.points);
-  document.getElementById('view-avatar').innerHTML = `
-  <h2>🧑‍🚀 Il Tuo Avatar</h2>
-  <div class="avatar-preview" style="background:${state.avatarColor}">
-    <span>${state.avatarFace}</span>
-    ${state.avatarAccessory!=='none'?`<span class="avatar-accessory">${getAccessoryEmoji(state.avatarAccessory)}</span>`:''}
-  </div>
-  <h3>Scegli il volto</h3>
-  <div class="option-row">${AVATAR_FACES.map(f=>{
-    const locked = level<f.lvl;
-    return `<button class="face-btn ${locked?'locked':''} ${state.avatarFace===f.emoji?'selected':''}" onclick="setAvatarFace('${f.emoji}',${f.lvl})">${locked?'🔒':f.emoji}${locked?`<small>Lv.${f.lvl}</small>`:''}</button>`;
-  }).join('')}</div>
-  <h3>Scegli il colore</h3>
-  <div class="option-row">${AVATAR_COLORS.map(c=>`<button class="color-btn ${state.avatarColor===c?'selected':''}" style="background:${c}" onclick="setAvatarColor('${c}')"></button>`).join('')}</div>
-  <h3>Accessori sbloccati con i trofei</h3>
-  <div class="option-row">${ACCESSORIES.map(a=>{
-    const locked = a.trophy && !state.trophies.includes(a.trophy);
-    return `<button class="face-btn ${locked?'locked':''} ${state.avatarAccessory===a.id?'selected':''}" onclick="setAvatarAccessory('${a.id}',${!!locked})">${locked?'🔒':(a.emoji||'🚫')}</button>`;
-  }).join('')}</div>`;
-}
-function setAvatarFace(emoji, lvl){ if(getLevel(state.points)<lvl) return; state.avatarFace=emoji; saveState(); renderAvatar(); renderHeader(); }
-function setAvatarColor(c){ state.avatarColor=c; saveState(); renderAvatar(); renderHeader(); }
-function setAvatarAccessory(id, locked){ if(locked) return; state.avatarAccessory=id; saveState(); renderAvatar(); renderHeader(); }
-
-/* =========================================================
-   TROFEI
-========================================================= */
-function renderTrophies(){
-  document.getElementById('view-trophies').innerHTML = `<h2>🏅 I Tuoi Trofei</h2><p class="subtitle">${state.trophies.length} su ${TROPHIES.length} sbloccati</p>
-  <div class="grid">${TROPHIES.map(t=>{
-    const unlocked = state.trophies.includes(t.id);
-    return `<div class="card trophy-card ${unlocked?'':'locked'}">
-      <div class="card-icon">${unlocked?t.icon:'❓'}</div>
-      <h3>${unlocked?t.title:'???'}</h3>
-      <p>${unlocked?t.desc:'Trofeo ancora da sbloccare'}</p>
-    </div>`;
-  }).join('')}</div>`;
-}
-
-/* =========================================================
-   PATENTINO / CERTIFICATO
-========================================================= */
-function renderCertificate(){
-  const lessonsDone=state.lessonsCompleted.length;
-  const gamesDone=state.gamesCompleted.length;
-  const eligible = lessonsDone>=LESSONS.length && gamesDone>=4;
-  let html = `<h2>🎓 Patentino di Sicurezza Digitale</h2>`;
-  if(!eligible){
-    html += `<p class="subtitle">Completa tutto il percorso per ottenere il tuo patentino ufficiale!</p>
-    <div class="progress-item"><span>📚 Lezioni: ${lessonsDone}/${LESSONS.length}</span><div class="progress-bar"><div class="progress-fill" style="width:${lessonsDone/LESSONS.length*100}%"></div></div></div>
-    <div class="progress-item"><span>🧪 Prove pratiche: ${gamesDone}/4</span><div class="progress-bar"><div class="progress-fill" style="width:${gamesDone/4*100}%"></div></div></div>`;
-  } else {
-    html += `<div class="success-box">🎉 Complimenti! Hai completato tutto il percorso. Scarica il tuo patentino!</div>
-    <input type="text" id="certName" class="pw-input" placeholder="Il tuo nome" value="${esc(state.name||'')}">
-    <button class="btn btn-primary" onclick="downloadCertificate()">📥 Genera e Scarica Patentino</button>`;
-  }
-  document.getElementById('view-certificate').innerHTML = html;
-}
-function downloadCertificate(){
-  const name = document.getElementById('certName').value || 'Eroe Digitale';
-  state.name=name; saveState(); renderHeader();
-  generateCertificate(name);
-  checkTrophies();
-}
-function generateCertificate(name){
-  const canvas=document.createElement('canvas');
-  canvas.width=1000; canvas.height=700;
-  const ctx=canvas.getContext('2d');
-  const grad=ctx.createLinearGradient(0,0,1000,700);
-  grad.addColorStop(0,'#667eea'); grad.addColorStop(1,'#764ba2');
-  ctx.fillStyle=grad; ctx.fillRect(0,0,1000,700);
-  ctx.fillStyle='#fff'; ctx.fillRect(30,30,940,640);
-  ctx.strokeStyle='#764ba2'; ctx.lineWidth=6; ctx.strokeRect(45,45,910,610);
-  ctx.textAlign='center';
-  ctx.fillStyle='#333'; ctx.font='bold 28px Arial'; ctx.fillText('🛡️ OnlyPrivacy 🛡️',500,120);
-  ctx.fillStyle='#764ba2'; ctx.font='bold 42px Arial'; ctx.fillText('PATENTINO DI SICUREZZA DIGITALE',500,190);
-  ctx.fillStyle='#555'; ctx.font='22px Arial'; ctx.fillText('Si certifica che',500,260);
-  ctx.fillStyle='#222'; ctx.font='bold 52px Arial'; ctx.fillText(name,500,330);
-  ctx.fillStyle='#555'; ctx.font='21px Arial';
-  ctx.fillText('ha completato con successo il percorso di educazione',500,390);
-  ctx.fillText('alla sicurezza informatica, dimostrando di saper',500,420);
-  ctx.fillText('riconoscere i pericoli del web e proteggersi online.',500,450);
-  ctx.fillStyle='#764ba2'; ctx.font='bold 24px Arial';
-  ctx.fillText('Livello raggiunto: '+getLevel(state.points)+'   •   Punti: '+state.points,500,510);
-  ctx.fillStyle='#888'; ctx.font='18px Arial';
-  ctx.fillText('Data: '+new Date().toLocaleDateString('it-IT'),500,570);
-  ctx.font='60px Arial'; ctx.fillText('🏆',500,650);
-  const link=document.createElement('a');
-  link.download='patentino_cybereroi.png';
-  link.href=canvas.toDataURL('image/png');
-  link.click();
-}
-
-/* =========================================================
-   NOME E INIT
-========================================================= */
-function saveName(){
-  const v=document.getElementById('modalNameInput').value.trim();
-  state.name=v||'Eroe'; saveState();
-  document.getElementById('modal-overlay').style.display='none';
-  renderHeader(); renderHome();
-}
-function init(){
-  updateStreak();
-  checkTrophies();
-  renderNav();
-  render();
-  if(!state.name || state.name==='Eroe'){
-    if(!state.name) document.getElementById('modal-overlay').style.display='flex';
-  }
-}
-init();
+});
 </script>
 </body>
 </html>
